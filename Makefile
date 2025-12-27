@@ -1,0 +1,40 @@
+CC = gcc
+CFLAGS = -Wall -Wextra -O2
+SRC_DIR = usr
+OBJ_DIR = obj
+BIN_DIR = bin
+TARGET = $(BIN_DIR)/mybox
+
+CMDS = echo mkdir cat ls rm pwd chmod cz touch ln cp mv head \
+       tail grep df true false id kill date du uname sleep
+
+OBJS = $(OBJ_DIR)/main.o $(patsubst %, $(OBJ_DIR)/%.o, $(CMDS))
+
+all: $(TARGET) symlinks
+
+$(TARGET): $(OBJS)
+	@mkdir -p $(BIN_DIR)
+	@echo "Linking MyBox..."
+	$(CC) $(CFLAGS) -o $@ $^
+
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	@mkdir -p $(OBJ_DIR)
+	@echo "Compiling $<..."
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(OBJ_DIR)/main.o: main.c
+	@mkdir -p $(OBJ_DIR)
+	@echo "Compiling Multiplexer..."
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+symlinks:
+	@echo "Creating symlinks in $(BIN_DIR)..."
+	@for cmd in $(CMDS); do \
+		ln -sf mybox $(BIN_DIR)/$$cmd; \
+	done
+
+clean:
+	@echo "Cleaning up..."
+	rm -rf $(OBJ_DIR) $(BIN_DIR)
+
+.PHONY: all clean symlinks
