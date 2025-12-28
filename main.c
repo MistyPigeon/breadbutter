@@ -27,16 +27,28 @@ struct applet {
 
 /* The dispatch table */
 struct applet applets[] = {
-    {"echo", echo_main},     {"mkdir", mkdir_main},
-    {"cat", cat_main},       {"ls", ls_main},
-    {"rm", rm_main},         {"pwd", pwd_main},
-    {"chmod", chmod_main},   {"cz", cz_main},
-    {"touch", touch_main},   {"ln", ln_main},
-    {"cp", cp_main},         {"mv", mv_main},
-    {"head", head_main},     {"tail", tail_main},
-    {"grep", grep_main},     {"df", df_main},
+    {"echo", echo_main}, {"mkdir", mkdir_main}, {"cat", cat_main},
+    {"ls", ls_main}, {"rm", rm_main}, {"pwd", pwd_main},
+    {"chmod", chmod_main}, {"cz", cz_main}, {"touch", touch_main},
+    {"ln", ln_main}, {"cp", cp_main}, {"mv", mv_main},
+    {"head", head_main}, {"tail", tail_main}, {"grep", grep_main},
+    {"df", df_main}, {"true", true_main}, {"false", false_main},
+    {"id", id_main}, {"kill", kill_main}, {"date", date_main},
+    {"du", du_main}, {"uname", uname_main}, {"sleep", sleep_main},
+    {"basename", basename_main}, {"dirname", dirname_main}, {"env", env_main},
+    {"wc", wc_main}, {"tee", tee_main}, {"uniq", uniq_main},
+    {"whoami", whoami_main}, {"printf", printf_main}, {"tr", tr_main},
+    {"find", find_main}, {"comm", comm_main}, {"cut", cut_main},
+    {"logname", logname_main}, {"nohup", nohup_main}, {"sort", sort_main},
+    {"xargs", xargs_main}, {"sed", sed_main}, {"awk", awk_main},
+    {"alias", alias_main}, {"unalias", unalias_main}, {"cal", cal_main},
+    {"cd", cd_main}, {"cksum", cksum_main}, {"diff", diff_main},
+    {"getconf", getconf_main}, {"logger", logger_main}, {"mesg", mesg_main},
+    {"pathchk", pathchk_main}, {"time", time_main}, {"expr", expr_main},
+    {"test", test_main}, {"tty", tty_main}, {"dd", dd_main}, {"ps", ps_main},
     {NULL, NULL}
 };
+
 
 int main(int argc, char **argv) {
     char *name = basename(argv[0]);
