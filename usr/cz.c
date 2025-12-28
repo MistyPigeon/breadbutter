@@ -8,7 +8,7 @@ static void cz_compress(FILE *in, FILE *out) {
     unsigned char buf[128];
     int c, next, i;
 
-    fwrite("CZ1", 1, 3, out);
+    fwrite("CZ0", 1, 3, out);
 
     c = fgetc(in);
     while (c != EOF) {
