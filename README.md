@@ -8,6 +8,7 @@ further changes may happen but the core design is finished.
 here is how to get it up and running. it is pretty simple and should only take a few seconds since i optimized the hell and heck out of the compiler settings.
 
 building brb:
+
 first, make sure you are in the root of the repo. then run:
 
 make
