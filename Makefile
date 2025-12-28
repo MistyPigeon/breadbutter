@@ -6,7 +6,12 @@ BIN_DIR = bin
 TARGET = $(BIN_DIR)/mybox
 
 CMDS = echo mkdir cat ls rm pwd chmod cz touch ln cp mv head \
-       tail grep df true false id kill date du uname sleep
+       tail grep df true false id kill date du uname sleep \
+       basename dirname env wc tee uniq whoami printf tr find \
+       comm cut logname nohup sort xargs sed awk \
+       alias unalias cal cd cksum diff getconf logger mesg pathchk time \
+       expr test tty dd ps
+
 
 OBJS = $(OBJ_DIR)/main.o $(patsubst %, $(OBJ_DIR)/%.o, $(CMDS))
 
