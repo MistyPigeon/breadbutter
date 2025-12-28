@@ -3,7 +3,7 @@ CFLAGS = -Wall -Wextra -O2
 SRC_DIR = usr
 OBJ_DIR = obj
 BIN_DIR = bin
-TARGET = $(BIN_DIR)/mybox
+TARGET = $(BIN_DIR)/breadbutter
 
 CMDS = echo mkdir cat ls rm pwd chmod cz touch ln cp mv head \
        tail grep df true false id kill date du uname sleep \
@@ -35,7 +35,7 @@ $(OBJ_DIR)/main.o: main.c
 symlinks:
 	@echo "Creating symlinks in $(BIN_DIR)..."
 	@for cmd in $(CMDS); do \
-		ln -sf mybox $(BIN_DIR)/$$cmd; \
+		ln -sf breadbutter $(BIN_DIR)/$$cmd; \
 	done
 
 clean:
