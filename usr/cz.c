@@ -44,7 +44,7 @@ static void cz_decompress(FILE *in, FILE *out) {
     char magic[3];
     int header, c;
 
-    if (fread(magic, 1, 3, in) != 3 || memcmp(magic, "CZ1", 3) != 0) {
+    if (fread(magic, 1, 3, in) != 3 || memcmp(magic, "CZ0", 3) != 0) {
         fprintf(stderr, "cz: invalid format\n");
         return;
     }
